@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:like_it_merchant_mb/common/utility/lelog.dart';
+import 'package:kualiva_merchant_mb/common/utility/lelog.dart';
 
 class CheckDevice {
   static bool isAndroid() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:like_it_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/app_export.dart';
 
 extension RadioStyleHelper on CustomRadioButton {
   static BoxDecoration fillOnPrimaryContainer(BuildContext context) =>

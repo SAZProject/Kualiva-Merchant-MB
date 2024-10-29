@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:like_it_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/app_export.dart';
 
 void showSnackBar(BuildContext context, IconData? icon, Color? iconColor,
     String? message, Color? messageColor) {

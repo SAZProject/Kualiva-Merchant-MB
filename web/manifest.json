@@ -1,6 +1,6 @@
 {
-    "name": "like_it_merchant_mb",
-    "short_name": "like_it_merchant_mb",
+    "name": "kualiva_merchant_mb",
+    "short_name": "kualiva_merchant_mb",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

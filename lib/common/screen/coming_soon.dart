@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:like_it_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/app_export.dart';
 
 class ComingSoon extends StatelessWidget {
   const ComingSoon({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:like_it_merchant_mb/common/app_export.dart';
-import 'package:like_it_merchant_mb/common/utility/image_utility.dart';
+import 'package:kualiva_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/utility/image_utility.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 

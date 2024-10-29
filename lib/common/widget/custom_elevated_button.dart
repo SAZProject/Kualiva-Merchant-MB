@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:like_it_merchant_mb/common/style/custom_btn_style.dart';
-import 'package:like_it_merchant_mb/common/utility/sized_utils.dart';
+import 'package:kualiva_merchant_mb/common/style/custom_btn_style.dart';
+import 'package:kualiva_merchant_mb/common/utility/sized_utils.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({

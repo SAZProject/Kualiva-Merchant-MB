@@ -1,12 +1,12 @@
-# like_it_merchant_mb
+# kualiva_merchant_mb
 
 This is a LIKE IT Merchant App for Prelion corporation.
 
 ## Changelog
 
 ```text
-Ver 0.0.2
-- initial config and Customizable widget
+Ver 0.0.2+01
+- Change project package/bundle name + add new config
 ```
 
 ## Getting Started

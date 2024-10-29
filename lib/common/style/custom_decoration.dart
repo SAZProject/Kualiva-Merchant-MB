@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:like_it_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/app_export.dart';
 
 class CustomDecoration {
   final BuildContext context;

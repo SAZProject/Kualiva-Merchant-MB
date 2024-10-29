@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:like_it_merchant_mb/common/app_export.dart';
-import 'package:like_it_merchant_mb/common/utility/image_utility.dart';
-import 'package:like_it_merchant_mb/common/widget/custom_fullscreen_image.dart';
-import 'package:like_it_merchant_mb/common/widget/custom_image_dialog.dart';
+import 'package:kualiva_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/utility/image_utility.dart';
+import 'package:kualiva_merchant_mb/common/widget/custom_fullscreen_image.dart';
+import 'package:kualiva_merchant_mb/common/widget/custom_image_dialog.dart';
 
 class CustomAttachMedia extends StatelessWidget {
   const CustomAttachMedia({

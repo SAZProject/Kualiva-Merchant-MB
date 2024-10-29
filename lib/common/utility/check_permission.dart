@@ -1,4 +1,4 @@
-import 'package:like_it_merchant_mb/common/utility/check_device.dart';
+import 'package:kualiva_merchant_mb/common/utility/check_device.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class CheckPermission {

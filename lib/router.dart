@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/auth/sign_in_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
+import 'package:kualiva_merchant_mb/layout/main_layout.dart';
 import 'package:kualiva_merchant_mb/splash/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -22,6 +23,11 @@ Route<dynamic> generateRoute(RouteSettings routeSetting) {
     case AppRoutes.signInScreen:
       return PageTransition(
           child: const SignInScreen(),
+          type: PageTransitionType.rightToLeft,
+          alignment: Alignment.center);
+    case AppRoutes.mainLayout:
+      return PageTransition(
+          child: const MainLayout(),
           type: PageTransitionType.rightToLeft,
           alignment: Alignment.center);
     default:

@@ -4,10 +4,6 @@ import 'package:permission_handler/permission_handler.dart';
 class PermissionUtils {
   static Future<bool> checkDevicePermission() async {
     if (CheckDevice.isAndroid()) {
-      if (await Permission.location.isPermanentlyDenied ||
-          await Permission.location.isDenied) {
-        return false;
-      }
       if (await Permission.camera.isPermanentlyDenied ||
           await Permission.camera.isDenied) {
         return false;
@@ -35,9 +31,6 @@ class PermissionUtils {
     bool havePermission = false;
 
     if (CheckDevice.isAndroid()) {
-      if (await Permission.location.isPermanentlyDenied) {
-        Permission.location.request();
-      }
       if (await Permission.camera.isPermanentlyDenied) {
         Permission.camera.request();
       }
@@ -45,7 +38,6 @@ class PermissionUtils {
         Permission.microphone.request();
       }
       List<Permission> defaultPerm = [
-        Permission.location,
         Permission.camera,
         Permission.microphone,
       ];
@@ -71,7 +63,10 @@ class PermissionUtils {
             .every((status) => status == PermissionStatus.granted);
       }
     }
-    if (!havePermission) return await openAppSettings();
+    if (!havePermission) {
+      await openAppSettings();
+      return !havePermission;
+    }
     return havePermission;
   }
 }

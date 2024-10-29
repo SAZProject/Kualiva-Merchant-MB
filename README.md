@@ -5,9 +5,9 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.4
-- Add Sign In Screen
-- Add Permission Utils
+Ver 0.0.5
+- Add Main Layout
+- Fix Permission Utils
 ```
 
 ## Getting Started

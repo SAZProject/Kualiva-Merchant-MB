@@ -87,5 +87,11 @@
         "policy": "Privacy Policy",
 
         "sign_in_btn": "Sign In"
+    },
+    "home_nav_bar": {
+        "nav_1": "Home",
+        "nav_2": "Reward",
+        "nav_3": "Review",
+        "nav_4": "Account"
     }
 }

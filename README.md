@@ -5,8 +5,8 @@ This is a LIKE IT Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.1
-- initial commit
+Ver 0.0.2
+- initial config and Customizable widget
 ```
 
 ## Getting Started

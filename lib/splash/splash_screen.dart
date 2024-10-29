@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
-import 'package:kualiva_merchant_mb/common/utility/check_permission.dart';
+import 'package:kualiva_merchant_mb/common/utility/permission_utils.dart';
 import 'package:kualiva_merchant_mb/common/utility/lelog.dart';
 import 'package:kualiva_merchant_mb/common/utility/video_constant.dart';
 import 'package:video_player/video_player.dart';
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
         !_hasVideoCompleted) {
       _hasVideoCompleted = true;
       LeLog.pd(this, _videoListener, "Video Ended");
-      if (await CheckPermission.checkDevicePermission()) {
+      if (await PermissionUtils.checkDevicePermission()) {
         if (!mounted) return;
       } else {
         if (!mounted) return;

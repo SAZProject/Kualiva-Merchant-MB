@@ -1,0 +1,77 @@
+import 'package:kualiva_merchant_mb/common/utility/check_device.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+class PermissionUtils {
+  static Future<bool> checkDevicePermission() async {
+    if (CheckDevice.isAndroid()) {
+      if (await Permission.location.isPermanentlyDenied ||
+          await Permission.location.isDenied) {
+        return false;
+      }
+      if (await Permission.camera.isPermanentlyDenied ||
+          await Permission.camera.isDenied) {
+        return false;
+      }
+      if (await Permission.microphone.isPermanentlyDenied ||
+          await Permission.microphone.isDenied) {
+        return false;
+      }
+      if (await CheckDevice.isAndroid13plus()) {
+        if (await Permission.photos.isPermanentlyDenied ||
+            await Permission.photos.isDenied) {
+          return false;
+        }
+      } else {
+        if (await Permission.storage.isPermanentlyDenied ||
+            await Permission.storage.isDenied) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  static Future<bool> requestPermission(context) async {
+    bool havePermission = false;
+
+    if (CheckDevice.isAndroid()) {
+      if (await Permission.location.isPermanentlyDenied) {
+        Permission.location.request();
+      }
+      if (await Permission.camera.isPermanentlyDenied) {
+        Permission.camera.request();
+      }
+      if (await Permission.microphone.isPermanentlyDenied) {
+        Permission.microphone.request();
+      }
+      List<Permission> defaultPerm = [
+        Permission.location,
+        Permission.camera,
+        Permission.microphone,
+      ];
+      if (await CheckDevice.isAndroid13plus()) {
+        if (await Permission.photos.isPermanentlyDenied) {
+          Permission.photos.request();
+        }
+        final request = await [
+          ...defaultPerm,
+          Permission.photos,
+        ].request();
+        havePermission = request.values
+            .every((status) => status == PermissionStatus.granted);
+      } else {
+        if (await Permission.storage.isPermanentlyDenied) {
+          Permission.storage.request();
+        }
+        final request = await [
+          ...defaultPerm,
+          Permission.storage,
+        ].request();
+        havePermission = request.values
+            .every((status) => status == PermissionStatus.granted);
+      }
+    }
+    if (!havePermission) return await openAppSettings();
+    return havePermission;
+  }
+}

@@ -18,13 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: _rewardAppBar(context),
+        appBar: _homeAppBar(context),
         body: _body(context),
       ),
     );
   }
 
-  PreferredSizeWidget _rewardAppBar(BuildContext context) {
+  PreferredSizeWidget _homeAppBar(BuildContext context) {
     return CustomAppBar(
       title: context.tr("common.appbar",
           namedArgs: {"name": "name", "userId": "User Id"}),

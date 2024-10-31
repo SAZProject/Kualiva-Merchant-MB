@@ -23,36 +23,39 @@ extension TextFormFieldStyleHelper on CustomTextFormField {
 }
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
-      {super.key,
-      this.alignment,
-      this.width,
-      this.boxDecoration,
-      this.scrollPadding,
-      this.controller,
-      this.focusNode,
-      this.autoFocus = false,
-      this.textStyle,
-      this.obscureText = false,
-      this.readOnly = false,
-      this.onPressed,
-      this.textInputAction = TextInputAction.next,
-      this.textInputType = TextInputType.text,
-      this.maxLines,
-      this.hintText,
-      this.hintStyle,
-      this.prefix,
-      this.prefixConstraints,
-      this.suffix,
-      this.suffixConstraints,
-      this.contentPadding,
-      this.inputBorder,
-      this.fillColor,
-      this.filled = true,
-      this.validator});
+  const CustomTextFormField({
+    super.key,
+    this.alignment,
+    this.width,
+    this.height,
+    this.boxDecoration,
+    this.scrollPadding,
+    this.controller,
+    this.focusNode,
+    this.autoFocus = false,
+    this.textStyle,
+    this.obscureText = false,
+    this.readOnly = false,
+    this.onPressed,
+    this.textInputAction = TextInputAction.next,
+    this.textInputType = TextInputType.text,
+    this.maxLines,
+    this.hintText,
+    this.hintStyle,
+    this.prefix,
+    this.prefixConstraints,
+    this.suffix,
+    this.suffixConstraints,
+    this.contentPadding,
+    this.inputBorder,
+    this.fillColor,
+    this.filled = true,
+    this.validator,
+  });
 
   final Alignment? alignment;
   final double? width;
+  final double? height;
   final BoxDecoration? boxDecoration;
   final TextEditingController? scrollPadding;
   final TextEditingController? controller;
@@ -89,6 +92,7 @@ class CustomTextFormField extends StatelessWidget {
 
   Widget textFormFieldWidget(BuildContext context) => Container(
         width: width ?? double.maxFinite,
+        height: height,
         decoration: boxDecoration,
         child: TextFormField(
           scrollPadding:

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
 import 'package:kualiva_merchant_mb/home/home_screen.dart';
+import 'package:kualiva_merchant_mb/review/review_screen.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -31,10 +32,8 @@ class _MainLayoutState extends State<MainLayout> {
       case 1:
         return const ComingSoon();
       case 2:
-        return const ComingSoon();
+        return const ReviewScreen();
       case 3:
-        return const ComingSoon();
-      case 4:
         return const ComingSoon();
       default:
         return const ComingSoon();

@@ -10,6 +10,7 @@
         "ok": "Ok",
         "cancel": "Cancel",
         "retry": "Retry",
+        "show_license": "Show App License",
 
         "appbar": "{name}-{userId}",
 
@@ -152,5 +153,11 @@
         "faq": "Frequently Asked Questions:",
         "default_option": "Option {index}",
         "contact_cc": "Contact Customer Care"
+    },
+    "about_us_screen": {
+        "title": "About Us",
+        "tac": "Terms and Conditions",
+        "privacy_policy": "Privacy Policy",
+        "our_socials": "Visit Our Socials"
     }
 }

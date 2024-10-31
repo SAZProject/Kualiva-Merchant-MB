@@ -36,6 +36,7 @@ class AccountMenuSection extends StatelessWidget {
         Navigator.pushNamed(context, AppRoutes.helpScreen);
         break;
       case 2:
+        Navigator.pushNamed(context, AppRoutes.aboutUsScreen);
         break;
       case 3:
         break;

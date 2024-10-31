@@ -74,8 +74,8 @@ class CustomTextStyles {
   TextStyle get bodySmall10 => theme(context).textTheme.bodySmall!.copyWith(
         fontSize: 10.fontSize,
       );
-  TextStyle get bodySmall9 => theme(context).textTheme.bodySmall!.copyWith(
-        fontSize: 9.fontSize,
+  TextStyle get bodySmall8 => theme(context).textTheme.bodySmall!.copyWith(
+        fontSize: 6.fontSize,
       );
   TextStyle get bodySmall12 => theme(context).textTheme.bodySmall!.copyWith(
         fontSize: 12.fontSize,

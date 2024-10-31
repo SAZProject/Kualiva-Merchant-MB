@@ -11,6 +11,8 @@
         "cancel": "Cancel",
         "retry": "Retry",
 
+        "appbar": "{name}-{userId}",
+
         "progress": "Progress",
         "loading": "Loading...",
         "error": "Error",
@@ -93,5 +95,17 @@
         "nav_2": "Reward",
         "nav_3": "Review",
         "nav_4": "Account"
+    },
+    "home_screen": {
+        "merchant_program": "Merchant Programs",
+        "analytic": "Analytic",
+        "turnover_price": "Rp.{price}",
+        "turnover_percentage": "Today {percentage}%",
+        "total_turnover": "Total Turnover",
+        "customer_percentage": "Today {percentage}%",
+        "total_customer": "Total Customer",
+        "review": "Review",
+        "recent": "Recent",
+        "view_more": "View More"
     }
 }

@@ -5,9 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.5
-- Add Main Layout
-- Fix Permission Utils
+Ver 0.0.6
+- Add Home Screen and it's Modularized Widget
 ```
 
 ## Getting Started

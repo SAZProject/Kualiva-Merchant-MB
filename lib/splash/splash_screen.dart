@@ -51,6 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
       LeLog.pd(this, _videoListener, "Video Ended");
       if (await PermissionUtils.checkDevicePermission()) {
         if (!mounted) return;
+        Navigator.pushNamed(context, AppRoutes.signInScreen);
       } else {
         if (!mounted) return;
         Navigator.pushNamed(context, AppRoutes.signInScreen);

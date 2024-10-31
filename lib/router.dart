@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/auth/sign_in_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
+import 'package:kualiva_merchant_mb/home/home_screen.dart';
 import 'package:kualiva_merchant_mb/layout/main_layout.dart';
 import 'package:kualiva_merchant_mb/splash/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
@@ -11,6 +12,8 @@ class AppRoutes {
   static const String signInScreen = "/sign_in_screen";
 
   static const String mainLayout = "/main_layout";
+
+  static const String homeScreen = "/home_screen";
 }
 
 Route<dynamic> generateRoute(RouteSettings routeSetting) {
@@ -28,6 +31,11 @@ Route<dynamic> generateRoute(RouteSettings routeSetting) {
     case AppRoutes.mainLayout:
       return PageTransition(
           child: const MainLayout(),
+          type: PageTransitionType.rightToLeft,
+          alignment: Alignment.center);
+    case AppRoutes.homeScreen:
+      return PageTransition(
+          child: const HomeScreen(),
           type: PageTransitionType.rightToLeft,
           alignment: Alignment.center);
     default:

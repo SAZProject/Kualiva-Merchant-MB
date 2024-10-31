@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
+import 'package:kualiva_merchant_mb/home/home_screen.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -26,7 +27,7 @@ class _MainLayoutState extends State<MainLayout> {
   Widget _body(BuildContext context) {
     switch (_selectedPage) {
       case 0:
-        return const ComingSoon();
+        return const HomeScreen();
       case 1:
         return const ComingSoon();
       case 2:

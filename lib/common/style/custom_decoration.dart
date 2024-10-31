@@ -256,10 +256,9 @@ class BorderRadiusStyle {
   static BorderRadius get customBorderTL6 =>
       BorderRadius.only(topLeft: Radius.circular(5.h));
   // Rounded Borders
-  static BorderRadius get roundedBorder1 => BorderRadius.circular(1.h);
   static BorderRadius get roundedBorder5 => BorderRadius.circular(5.h);
   static BorderRadius get roundedBorder10 => BorderRadius.circular(10.h);
-  static BorderRadius get roundedBorder14 => BorderRadius.circular(14.h);
+  static BorderRadius get roundedBorder15 => BorderRadius.circular(15.h);
   static BorderRadius get roundedBorder20 => BorderRadius.circular(20.h);
-  static BorderRadius get roundedBorder44 => BorderRadius.circular(44.h);
+  static BorderRadius get roundedBorder50 => BorderRadius.circular(50.h);
 }

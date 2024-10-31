@@ -138,5 +138,13 @@
         "reset_btn": "Reset",
         "confirm_btn": "Confirm",
         "submit_btn": "Submit"
+    }, 
+    "account": {
+        "edit_data": "Edit Data",
+        "web_dashboard": "Website Dashboard",
+        "theme": "Theme",
+        "cs": "Customer Support",
+        "about_us": "About Us",
+        "log_out": "Log Out"
     }
 }

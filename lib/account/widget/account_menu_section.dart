@@ -33,6 +33,7 @@ class AccountMenuSection extends StatelessWidget {
   void _accountMenuNavigate(BuildContext context, int index) {
     switch (index) {
       case 1:
+        Navigator.pushNamed(context, AppRoutes.helpScreen);
         break;
       case 2:
         break;

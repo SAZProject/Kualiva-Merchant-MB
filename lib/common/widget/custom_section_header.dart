@@ -28,7 +28,7 @@ class CustomSectionHeader extends StatelessWidget {
           children: [
             Text(
               label,
-              style: theme(context).textTheme.titleLarge!.copyWith(
+              style: theme(context).textTheme.titleSmall!.copyWith(
                   color: theme(context).colorScheme.onPrimaryContainer),
             ),
             useIcon

@@ -146,5 +146,11 @@
         "cs": "Customer Support",
         "about_us": "About Us",
         "log_out": "Log Out"
+    },
+    "help_screen": {
+        "title": "Customer Support",
+        "faq": "Frequently Asked Questions:",
+        "default_option": "Option {index}",
+        "contact_cc": "Contact Customer Care"
     }
 }

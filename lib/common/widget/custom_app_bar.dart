@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leadingIcon = Icons.arrow_back_ios_new,
     this.leadingIconColor,
     this.title,
+    this.centerTitle = false,
     this.actions,
     this.onBackPressed,
   });
@@ -20,6 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final IconData? leadingIcon;
   final Color? leadingIconColor;
   final String? title;
+  final bool? centerTitle;
   final List<Widget>? actions;
   final VoidCallback? onBackPressed;
 
@@ -30,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0.0,
       toolbarHeight: height ?? 50.h,
       titleSpacing: 0.0,
-      centerTitle: false,
+      centerTitle: centerTitle,
       leading: Padding(
         padding: EdgeInsets.only(left: 5.h),
         child: IconButton(

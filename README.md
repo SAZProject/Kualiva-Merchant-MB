@@ -5,8 +5,9 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.8+01
-- Fix appbar naming
+Ver 0.0.9
+- Add Help Screen and it's Modularized Widget
+- Revised some custom widget
 ```
 
 ## Getting Started

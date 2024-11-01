@@ -15,7 +15,7 @@ class AccountTopSection extends StatelessWidget {
             context,
             Icons.edit,
             context.tr("account.edit_data"),
-            () {},
+            () => Navigator.pushNamed(context, AppRoutes.editScreen),
           ),
           _buildSectionItem(
             context,

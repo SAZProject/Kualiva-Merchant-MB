@@ -159,5 +159,12 @@
         "tac": "Terms and Conditions",
         "privacy_policy": "Privacy Policy",
         "our_socials": "Visit Our Socials"
+    },
+    "edit_screen": {
+        "title": "Edit",
+        "edit_outlet": "Edit Outlet",
+        "edit_outlet_content": "Contact, Operational Hours, Menu, etc",
+        "edit_user": "Edit User",
+        "edit_user_content": "Ownership, Documents, Contact Person, etc"
     }
 }

@@ -55,7 +55,7 @@ class EditScreen extends StatelessWidget {
               1,
               context.tr("edit_screen.edit_user"),
               context.tr("edit_screen.edit_user_content"),
-              () {},
+              () => Navigator.pushNamed(context, AppRoutes.editOwnershipScreen),
             ),
           ],
         ),

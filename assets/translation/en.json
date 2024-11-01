@@ -10,6 +10,7 @@
         "ok": "Ok",
         "cancel": "Cancel",
         "retry": "Retry",
+        "edit": "Edit",
         "show_license": "Show App License",
 
         "appbar": "{name}-{userId}",
@@ -165,6 +166,10 @@
         "edit_outlet": "Edit Outlet",
         "edit_outlet_content": "Contact, Operational Hours, Menu, etc",
         "edit_user": "Edit User",
-        "edit_user_content": "Ownership, Documents, Contact Person, etc"
+        "edit_user_content": "Ownership, Documents, Contact Person, etc",
+
+        "edit_ownership": "Edit Ownership",
+        "fullname": "Fullname",
+        "contact": "Contact"
     }
 }

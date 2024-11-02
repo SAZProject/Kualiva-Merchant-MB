@@ -48,7 +48,7 @@ class EditScreen extends StatelessWidget {
               0,
               context.tr("edit_screen.edit_outlet"),
               context.tr("edit_screen.edit_outlet_content"),
-              () {},
+              () => Navigator.pushNamed(context, AppRoutes.chooseOutletScreen),
             ),
             _buildEditDataItem(
               context,

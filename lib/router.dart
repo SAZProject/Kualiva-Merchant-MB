@@ -3,6 +3,7 @@ import 'package:kualiva_merchant_mb/account/about_us_screen.dart';
 import 'package:kualiva_merchant_mb/account/help_screen.dart';
 import 'package:kualiva_merchant_mb/auth/sign_in_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
+import 'package:kualiva_merchant_mb/edit/choose_outlet_screen.dart';
 import 'package:kualiva_merchant_mb/edit/edit_ownership_screen.dart';
 import 'package:kualiva_merchant_mb/edit/edit_screen.dart';
 import 'package:kualiva_merchant_mb/home/home_screen.dart';
@@ -26,6 +27,8 @@ class AppRoutes {
   static const String editScreen = "/edit_screen";
 
   static const String editOwnershipScreen = "/edit_ownership_screen";
+
+  static const String chooseOutletScreen = "/choose_outlet_screen";
 }
 
 Route<dynamic> generateRoute(RouteSettings routeSetting) {
@@ -68,6 +71,11 @@ Route<dynamic> generateRoute(RouteSettings routeSetting) {
     case AppRoutes.editOwnershipScreen:
       return PageTransition(
           child: const EditOwnershipScreen(),
+          type: PageTransitionType.rightToLeft,
+          alignment: Alignment.center);
+    case AppRoutes.chooseOutletScreen:
+      return PageTransition(
+          child: const ChooseOutletScreen(),
           type: PageTransitionType.rightToLeft,
           alignment: Alignment.center);
     default:

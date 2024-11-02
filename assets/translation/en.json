@@ -171,5 +171,11 @@
         "edit_ownership": "Edit Ownership",
         "fullname": "Fullname",
         "contact": "Contact"
+    },
+    "choose_outlet": {
+        "title": "Choose Outlet",
+        "outlet_name": "Outlet Name",
+        "unique_id": "Unique ID",
+        "claimed": "Claimed: {date}"
     }
 }

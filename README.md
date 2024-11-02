@@ -5,8 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.13
-- Add Choose Outlet Screen and it's Modularized Widget
+Ver 0.0.14
+- Add Edit Outlet Screen and it's Modularized Widget
 ```
 
 ## Getting Started

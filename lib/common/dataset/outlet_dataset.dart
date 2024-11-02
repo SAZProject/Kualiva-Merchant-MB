@@ -1,19 +1,18 @@
 class OutletDataset {
   static List<String> get outletTags => [
-        ...outletMainCateg,
         ...outletSubCategFood,
         ...outletSubCategBvg,
       ];
 
-  final List<String> outletType = [
-    "F&B",
-    "Hostelry",
-    "Groceries",
-    "Lounge",
-    "Spa",
-    "Mall",
-    "Recreation",
-  ];
+  static List<String> get outletType => [
+        "F&B",
+        "Hostelry",
+        "Groceries",
+        "Lounge",
+        "Spa",
+        "Mall",
+        "Recreation",
+      ];
 
   static List<String> get outletMainCateg => [
         "24 Hour",

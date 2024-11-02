@@ -63,8 +63,8 @@ class ChooseOutletScreen extends StatelessWidget {
             outletName: Faker().company.name(),
             uniqueId: Random().nextInt(500).toString(),
             claimedDate: DatetimeUtils.dmy(Faker().date.dateTime()),
-            contact: Faker().phoneNumber.toString(),
-            location: Faker().address.toString(),
+            contact: Faker().phoneNumber.us().toString(),
+            location: Faker().address.streetAddress().toString(),
             tags: OutletDataset.outletTags,
             operationalDay: List.generate(7, (index) => index),
             operationalTimeOpen: List.generate(

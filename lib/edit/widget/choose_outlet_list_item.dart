@@ -20,7 +20,11 @@ class ChooseOutletListItem extends StatelessWidget {
         child: Card(
           elevation: 5.0,
           child: InkWell(
-            onTap: () {},
+            onTap: () => Navigator.pushNamed(
+              context,
+              AppRoutes.editOutletScreen,
+              arguments: outletModel,
+            ),
             child: Padding(
               padding: EdgeInsets.all(5.h),
               child: Column(

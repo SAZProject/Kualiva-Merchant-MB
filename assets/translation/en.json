@@ -177,5 +177,23 @@
         "outlet_name": "Outlet Name",
         "unique_id": "Unique ID",
         "claimed": "Claimed: {date}"
+    },
+    "edit_outlet": {
+        "title": "Edit Outlet",
+        "outlet_name": "Outlet Name",
+        "req_edit": "(Request Edit)",
+        "contact": "Contact",
+        "location": "Location",
+        "type": "Outlet Type",
+        "type_hint": "Select Outlet Type",
+        "tags": "Outlet tags",
+        "tags_hint": "Select Outlet tags",
+        "operating_hour": "Operating Date & Time",
+        "day": "Day",
+        "open_hour": "Open Hour",
+        "closing_hour": "Closing Hour",
+        "manage_menu": "Manage Menu",
+
+        "save_btn": "Save"
     }
 }

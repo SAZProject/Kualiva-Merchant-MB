@@ -5,6 +5,7 @@ import 'package:kualiva_merchant_mb/common/widget/custom_app_bar.dart';
 import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_add_tags.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_dropdown_component.dart';
+import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_edit_menu.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_operational_component.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_textfield_component.dart';
 
@@ -113,6 +114,8 @@ class _EditOutletScreenState extends State<EditOutletScreen> {
                     widget.outletModel.operationalTimeClose,
                 selectedDay: selectedDay,
               ),
+              EditOutletEditMenu(
+                  listMenuPicture: widget.outletModel.menuPicture),
             ],
           ),
         ),

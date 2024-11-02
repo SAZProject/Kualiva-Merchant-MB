@@ -195,5 +195,11 @@
         "manage_menu": "Manage Menu",
 
         "save_btn": "Save"
+    },
+    "edit_menu": {
+        "title": "Edit Menu",
+        "menu_title": "Menu Title",
+        "menu_desc": "Menu Description",
+        "menu_price": "Price: RP{price}"
     }
 }

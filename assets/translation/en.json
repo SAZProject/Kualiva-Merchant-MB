@@ -80,6 +80,9 @@
         "hendler_connection_error": "Connection error, please try again!",
         "handler_unknown": "Unknown, please try again or contact admin!"
     },
+    "splash": {
+        "app_title": "KUALIVA\nMERCHANT"
+    },
     "sign_in": {
         "welcome": "Grow your business with\nKualiva Merchant",
         "merchant_acc": "Merchant Account",

@@ -5,9 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.16
-- Fix splash screen
-- change Like_it to kualiva
+Ver 0.0.16+01
+- Change app icon
 ```
 
 ## Getting Started

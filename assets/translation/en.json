@@ -93,7 +93,9 @@
         "policy_statement": "and that you have read our ",
         "policy": "Privacy Policy",
 
-        "sign_in_btn": "Sign In"
+        "sign_in_btn": "Sign In",
+        "sign_in_success" : "Sign In Success",
+        "sign_in_failed" : "Sign In Failed"
     },
     "home_nav_bar": {
         "nav_1": "Home",

@@ -1,0 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:kualiva_merchant_mb/common/style/custom_text_style.dart';
+
+class CustomEmptyState extends StatelessWidget {
+  const CustomEmptyState({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        context.tr("common.data_not_found"),
+        style: CustomTextStyles(context).bodyMediumOnPrimaryContainer_06,
+      ),
+    );
+  }
+}

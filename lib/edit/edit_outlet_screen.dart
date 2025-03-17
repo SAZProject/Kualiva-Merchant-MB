@@ -53,8 +53,8 @@ class _EditOutletScreenState extends State<EditOutletScreen> {
   void initState() {
     super.initState();
     _outletNameCtl.text = widget.outletModel.outletName;
-    _contactCtl.text = widget.outletModel.contact;
-    _locCtl.text = widget.outletModel.location;
+    _contactCtl.text = widget.outletModel.phoneBusiness;
+    _locCtl.text = widget.outletModel.address;
   }
 
   @override

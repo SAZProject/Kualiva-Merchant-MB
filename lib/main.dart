@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/data/shared_pref_collection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,7 @@ void main() async {
   });
 
   await EasyLocalization.ensureInitialized();
+  await PrefUtils.init();
 
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
   runApp(EasyLocalization(

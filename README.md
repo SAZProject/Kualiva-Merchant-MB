@@ -5,8 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.16+01
-- Change app icon
+Ver 0.0.17
+- Basic integration for testing presentation
 ```
 
 ## Getting Started

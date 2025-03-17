@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,10 @@ import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/style/custom_btn_style.dart';
 import 'package:kualiva_merchant_mb/common/utility/permission_utils.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_elevated_button.dart';
+import 'package:kualiva_merchant_mb/common/widget/custom_snack_bar.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_text_form_field.dart';
+import 'package:kualiva_merchant_mb/data/dio_client.dart';
+import 'package:kualiva_merchant_mb/data/shared_pref_collection.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -20,6 +25,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _usernameCtl = TextEditingController();
   final TextEditingController _passwordCtl = TextEditingController();
   bool passObscure = true;
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -29,12 +35,47 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onPressedSignIn(BuildContext context) {
+    setState(() {
+      isLoading = true;
+    });
     PermissionUtils.requestPermission(context).then(
-      (value) {
+      (value) async {
         if (value) {
           if (!context.mounted) return;
-          Navigator.pushNamedAndRemoveUntil(
-              context, AppRoutes.mainLayout, (route) => false);
+          Map<String, String> body = {
+            "usernameOrEmail": _usernameCtl.text.trim(),
+            "password": _passwordCtl.text.trim(),
+          };
+          final dio = await DioClient().dio();
+          final res = await dio.post('/users-merchant/login', data: body);
+          Map<String, dynamic> mapRes = jsonDecode(res.toString());
+          debugPrint("data debug 1 " + mapRes.toString());
+          if (mapRes["status"] == 200) {
+            setState(() {
+              isLoading = false;
+            });
+            debugPrint("data debug 2 " + mapRes["data"].toString());
+            Map<String, dynamic> mapData =
+                Map<String, dynamic>.from(mapRes["data"]);
+            debugPrint("data debug 3 " + mapData.toString());
+            PrefUtils.setProfile(mapData.toString());
+            if (!context.mounted) return;
+            showSnackBar(context, Icons.done_outline, Colors.greenAccent,
+                context.tr("sign_in.sign_in_success"), Colors.greenAccent);
+            Navigator.pushNamedAndRemoveUntil(
+                context, AppRoutes.mainLayout, (route) => false);
+          } else {
+            setState(() {
+              isLoading = false;
+            });
+            if (!context.mounted) return;
+            showSnackBar(context, Icons.error_outline, Colors.red,
+                context.tr("sign_in.sign_in_failed"), Colors.red);
+          }
+        } else {
+          setState(() {
+            isLoading = true;
+          });
         }
       },
     );
@@ -151,6 +192,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget _signInButton(BuildContext context) {
     return CustomElevatedButton(
+      isLoading: isLoading,
       initialText: context.tr("sign_in.sign_in_btn"),
       buttonStyle: CustomButtonStyles.none,
       decoration:

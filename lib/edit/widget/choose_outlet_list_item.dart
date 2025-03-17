@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
+import 'package:kualiva_merchant_mb/common/utility/datetime_utils.dart';
 import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
 
 class ChooseOutletListItem extends StatelessWidget {
@@ -57,7 +58,7 @@ class ChooseOutletListItem extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    outletModel.uniqueId,
+                    outletModel.id,
                     style: theme(context).textTheme.bodySmall,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -65,7 +66,7 @@ class ChooseOutletListItem extends StatelessWidget {
                   SizedBox(height: 5.h),
                   Text(
                     context.tr("choose_outlet.claimed", namedArgs: {
-                      "date": outletModel.claimedDate,
+                      "date": DatetimeUtils.dmy(outletModel.createdAt),
                     }),
                     style: theme(context).textTheme.labelMedium,
                     maxLines: 1,

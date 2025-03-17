@@ -62,7 +62,7 @@ class EditableTextfield extends StatelessWidget {
                               child: Text(
                                 context.tr(textfieldReadOnly
                                     ? "common.edit"
-                                    : "common.cancel"),
+                                    : "common.confirm"),
                                 style: CustomTextStyles(context)
                                     .bodySmall12
                                     .copyWith(

@@ -1,7 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_ce/hive.dart';
+import 'package:kualiva_merchant_mb/common/utility/lelog.dart';
 import 'package:kualiva_merchant_mb/common/utility/sized_utils.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_app_bar.dart';
+import 'package:kualiva_merchant_mb/data/dio_client.dart';
+import 'package:kualiva_merchant_mb/data/models/product.dart';
+import 'package:kualiva_merchant_mb/hive/hive_boxes.dart';
 import 'package:kualiva_merchant_mb/home/widget/home_analytic.dart';
 import 'package:kualiva_merchant_mb/home/widget/home_programs_slider.dart';
 import 'package:kualiva_merchant_mb/home/widget/home_recent_review.dart';
@@ -14,6 +19,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _getOrder();
+  }
+
+  Future<void> _getOrder() async {
+    final productsBox = Hive.box<Product>(productBox);
+
+    final dio = await DioClient().dio();
+    final response = await dio.get('/products', queryParameters: {"limit": 10});
+
+    if (response.statusCode == 200) {
+      final bodyJson = response.data as Map<String, dynamic>;
+      final productsJson = (bodyJson['products'] as List<dynamic>)
+          .map((e) => Product.fromMap(e))
+          .toList();
+
+      if (productsBox.values.toList().isEmpty) {
+        productsBox.addAll(productsJson);
+      } else {
+        LeLog.d(this, "Data on hive already exist");
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,7 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Icons.notifications,
               size: 25.h,
             ),
-            onPressed: () {},
+            onPressed: () {
+              final productsBox = Hive.box<Product>(productBox);
+              final listProduct = productsBox.values.toList();
+              LeLog.d(this, "Open Hive : $listProduct");
+            },
           ),
         ),
       ],

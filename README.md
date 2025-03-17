@@ -5,8 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.17
-- Basic integration for testing presentation
+Ver 0.0.18
+- Testing & create template dor Hive_Ce
 ```
 
 ## Getting Started

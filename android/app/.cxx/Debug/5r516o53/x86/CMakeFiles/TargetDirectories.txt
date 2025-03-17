@@ -1,0 +1,2 @@
+C:/Users/USER/Documents/programming_folder/like_it_merchant_mb/android/app/.cxx/Debug/5r516o53/x86/CMakeFiles/edit_cache.dir
+C:/Users/USER/Documents/programming_folder/like_it_merchant_mb/android/app/.cxx/Debug/5r516o53/x86/CMakeFiles/rebuild_cache.dir

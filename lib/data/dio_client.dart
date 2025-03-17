@@ -8,7 +8,8 @@ class DioClient {
   Future<Dio> dio() async {
     if (_dio != null) return _dio!;
 
-    const String baseUrl = "http://192.168.1.89:3000/api/v1";
+    //const String baseUrl = "http://192.168.1.89:3000/api/v1";
+    const String baseUrl = "https://dummyjson.com";
     if (baseUrl.isEmpty) {
       throw Exception("Dotenv is not set");
     }

@@ -36,11 +36,15 @@ dependencies:
     dio: ^5.7.0
     pretty_dio_logger: ^1.4.0
     shared_preferences: ^2.3.5
+    hive_ce: ^2.10.1
+    hive_ce_flutter: ^2.2.0
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
     flutter_lints: ^4.0.0
+    hive_ce_generator: ^1.8.2
+    build_runner: ^2.4.15
 
 
 flutter_launcher_icons:

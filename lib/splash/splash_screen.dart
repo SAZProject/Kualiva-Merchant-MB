@@ -1,5 +1,4 @@
 import 'package:bounce/bounce.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/utility/lelog.dart';
@@ -79,12 +78,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startBounceAnimation() {
     setState(() {
-      _logoHeight = 100.h; // Set the target height for the bounce animation
+      _logoHeight = 50.h; // Set the target height for the bounce animation
     });
 
     Future.delayed(const Duration(milliseconds: 500), () {
       setState(() {
-        _logoHeight = 200.h; // Reset the height after the bounce animation
+        _logoHeight = 300.h; // Reset the height after the bounce animation
+      });
+    });
+
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      setState(() {
+        _logoHeight = 150.h; // Reset the height after the bounce animation
       });
     });
   }
@@ -129,18 +134,18 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
           ),
-          SizedBox(height: 5.h),
-          Padding(
-            padding: EdgeInsets.all(5.h),
-            child: Text(
-              context.tr("splash.app_title"),
-              style: Theme.of(context)
-                  .textTheme
-                  .displayMedium!
-                  .copyWith(fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-          )
+          // SizedBox(height: 5.h),
+          // Padding(
+          //   padding: EdgeInsets.all(5.h),
+          //   child: Text(
+          //     context.tr("splash.app_title"),
+          //     style: Theme.of(context)
+          //         .textTheme
+          //         .displayMedium!
+          //         .copyWith(fontWeight: FontWeight.bold),
+          //     textAlign: TextAlign.center,
+          //   ),
+          // )
         ],
       ),
     );

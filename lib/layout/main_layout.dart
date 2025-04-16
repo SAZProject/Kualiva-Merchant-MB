@@ -1,10 +1,10 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/account/account_screen.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
 import 'package:kualiva_merchant_mb/home/home_screen.dart';
+import 'package:kualiva_merchant_mb/program/program_screen.dart';
 import 'package:kualiva_merchant_mb/review/review_screen.dart';
 
 class MainLayout extends StatefulWidget {
@@ -31,7 +31,7 @@ class _MainLayoutState extends State<MainLayout> {
       case 0:
         return const HomeScreen();
       case 1:
-        return const ComingSoon();
+        return const ProgramScreen();
       case 2:
         return const ReviewScreen();
       case 3:
@@ -42,11 +42,13 @@ class _MainLayoutState extends State<MainLayout> {
   }
 
   Widget _bottomNavBar() {
-    return CurvedNavigationBar(
-      index: _selectedPage,
-      backgroundColor: Colors.transparent,
-      color: theme(context).colorScheme.onSecondaryContainer,
-      buttonBackgroundColor: appTheme.amber700,
+    return BottomNavigationBar(
+      currentIndex: _selectedPage,
+      unselectedLabelStyle: theme(context).textTheme.bodySmall,
+      selectedLabelStyle: CustomTextStyles(context).bodySmallPrimary12,
+      enableFeedback: true,
+      useLegacyColorScheme: false,
+      type: BottomNavigationBarType.fixed,
       items: [
         _bottomNavBarItems(
           context,
@@ -86,7 +88,7 @@ class _MainLayoutState extends State<MainLayout> {
     );
   }
 
-  Widget _bottomNavBarItems(
+  BottomNavigationBarItem _bottomNavBarItems(
     BuildContext context, {
     required int index,
     required String label,
@@ -96,45 +98,67 @@ class _MainLayoutState extends State<MainLayout> {
     String? selectedImage,
     String? imageDark,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Visibility(
-          visible: unselectedIcon != null,
-          child: Icon(
-            _selectedPage == index ? selectedIcon : unselectedIcon,
-            size: 30.h,
-            color: _selectedPage == index
-                ? appTheme.black900
-                : theme(context).iconTheme.color,
-          ),
-        ),
-        Visibility(
-          visible: unselectedImage != null,
-          child: Image.asset(
-            _selectedPage == index
-                ? selectedImage ?? "-"
-                : theme(context).brightness == Brightness.dark
-                    ? imageDark ?? "-"
-                    : unselectedImage ?? "-",
-            fit: BoxFit.cover,
-            width: 30.h,
-            height: 30.h,
-          ),
-        ),
-        Visibility(
-          visible: _selectedPage == index,
-          child: Center(
-            child: Text(
-              label,
-              style: theme(context).textTheme.bodySmall,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+    return BottomNavigationBarItem(
+      icon: unselectedIcon != null
+          ? Icon(
+              _selectedPage == index ? selectedIcon : unselectedIcon,
+              size: 30.h,
+              color: _selectedPage == index
+                  ? theme(context).colorScheme.primary
+                  : theme(context).iconTheme.color,
+            )
+          : Image.asset(
+              _selectedPage == index
+                  ? selectedImage ?? "-"
+                  : theme(context).brightness == Brightness.dark
+                      ? imageDark ?? "-"
+                      : unselectedImage ?? "-",
+              fit: BoxFit.cover,
+              width: 30.h,
+              height: 30.h,
             ),
-          ),
-        ),
-      ],
+      label: label,
     );
+
+    // Column(
+    //   crossAxisAlignment: CrossAxisAlignment.center,
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: [
+    //     Visibility(
+    //       visible: unselectedIcon != null,
+    //       child: Icon(
+    //         _selectedPage == index ? selectedIcon : unselectedIcon,
+    //         size: 30.h,
+    //         color: _selectedPage == index
+    //             ? appTheme.black900
+    //             : theme(context).iconTheme.color,
+    //       ),
+    //     ),
+    //     Visibility(
+    //       visible: unselectedImage != null,
+    //       child: Image.asset(
+    //         _selectedPage == index
+    //             ? selectedImage ?? "-"
+    //             : theme(context).brightness == Brightness.dark
+    //                 ? imageDark ?? "-"
+    //                 : unselectedImage ?? "-",
+    //         fit: BoxFit.cover,
+    //         width: 30.h,
+    //         height: 30.h,
+    //       ),
+    //     ),
+    //     Visibility(
+    //       visible: _selectedPage == index,
+    //       child: Center(
+    //         child: Text(
+    //           label,
+    //           style: theme(context).textTheme.bodySmall,
+    //           maxLines: 1,
+    //           overflow: TextOverflow.ellipsis,
+    //         ),
+    //       ),
+    //     ),
+    //   ],
+    // );
   }
 }

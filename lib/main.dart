@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
@@ -60,7 +61,7 @@ class _MyAppState extends State<MyApp> {
           light: ThemeHelper().themeData(ColorSchemes.lightModeScheme),
           dark: ThemeHelper().themeData(ColorSchemes.darkModeScheme),
           initial: widget.savedThemeMode ?? AdaptiveThemeMode.light,
-          debugShowFloatingThemeButton: true,
+          debugShowFloatingThemeButton: kDebugMode,
           builder: (light, dark) => MaterialApp(
             debugShowCheckedModeBanner: false,
             localizationsDelegates: context.localizationDelegates,

@@ -40,9 +40,30 @@ class CustomButtonStyles {
 
   static ButtonStyle fillprimary(BuildContext context) {
     return ElevatedButton.styleFrom(
-      backgroundColor: theme(context).colorScheme.primary.withOpacity(0.3),
+      backgroundColor: theme(context).colorScheme.primary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.h),
+      ),
+      elevation: 0.0,
+    );
+  }
+
+  static ButtonStyle fillprimary_025(BuildContext context) {
+    return ElevatedButton.styleFrom(
+      backgroundColor:
+          theme(context).colorScheme.primary.withValues(alpha: 0.25),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.h),
+      ),
+      elevation: 0.0,
+    );
+  }
+
+  static ButtonStyle fillprimaryRnd50(BuildContext context) {
+    return ElevatedButton.styleFrom(
+      backgroundColor: theme(context).colorScheme.primary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50.h),
       ),
       elevation: 0.0,
     );

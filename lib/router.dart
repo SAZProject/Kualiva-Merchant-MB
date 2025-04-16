@@ -3,6 +3,7 @@ import 'package:kualiva_merchant_mb/account/about_us_screen.dart';
 import 'package:kualiva_merchant_mb/account/help_screen.dart';
 import 'package:kualiva_merchant_mb/auth/sign_in_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
+import 'package:kualiva_merchant_mb/common/screen/term_of_service_screen.dart';
 import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
 import 'package:kualiva_merchant_mb/edit/choose_outlet_screen.dart';
 import 'package:kualiva_merchant_mb/edit/edit_menu_screen.dart';
@@ -18,6 +19,8 @@ class AppRoutes {
   static const String splashScreen = "/splash_screen";
 
   static const String signInScreen = "/sign_in_screen";
+
+  static const String tosScreen = "/t_o_s_screen";
 
   static const String mainLayout = "/main_layout";
 
@@ -48,6 +51,11 @@ Route<dynamic> generateRoute(RouteSettings routeSetting) {
     case AppRoutes.signInScreen:
       return PageTransition(
           child: const SignInScreen(),
+          type: PageTransitionType.rightToLeft,
+          alignment: Alignment.center);
+    case AppRoutes.tosScreen:
+      return PageTransition(
+          child: TermOfServiceScreen(),
           type: PageTransitionType.rightToLeft,
           alignment: Alignment.center);
     case AppRoutes.mainLayout:

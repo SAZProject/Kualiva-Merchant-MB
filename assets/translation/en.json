@@ -4,6 +4,7 @@
         "no": "No",
         "confirm": "Confirm",
         "pending": "Pending",
+        "agree": "Agree",
         "approve": "Approve",
         "reject": "Reject",
         "warning": "Warning",
@@ -13,7 +14,7 @@
         "edit": "Edit",
         "show_license": "Show App License",
 
-        "appbar": "{name}-{userId}",
+        "appbar": "{name} - {userId}",
 
         "progress": "Progress",
         "loading": "Loading...",
@@ -81,25 +82,30 @@
         "handler_unknown": "Unknown, please try again or contact admin!"
     },
     "splash": {
-        "app_title": "KUALIVA\nMERCHANT"
+        "app_title": "WALT\nMERCHANT"
+    },
+    "tos": {
+        "title": "Term of Service",
+        "tos_statement": "I agree to the ",
+        "tos": "Terms & Conditions",
+        "and": "and ",
+        "policy": "Privacy Policy"
     },
     "sign_in": {
-        "welcome": "Grow your business with\nKualiva Merchant",
-        "merchant_acc": "Merchant Account",
-        "username": "UserName",
-        "password": "password",
-        "tos_statement": "By registering, you agree to our ",
-        "tos": "Terms & Conditions",
-        "policy_statement": "and that you have read our ",
-        "policy": "Privacy Policy",
+        "welcome": "Grow your business with\nWalt Merchant",
+        "merchant_acc": "Walt Merchant Account",
+        "username": "Username",
+        "password": "Password",
 
         "sign_in_btn": "Sign In",
+        "or": "or",
+        "sign_up_btn": "Register Outlet",
         "sign_in_success" : "Sign In Success",
         "sign_in_failed" : "Sign In Failed"
     },
     "home_nav_bar": {
         "nav_1": "Home",
-        "nav_2": "Reward",
+        "nav_2": "Program",
         "nav_3": "Review",
         "nav_4": "Account"
     },
@@ -114,6 +120,27 @@
         "review": "Review",
         "recent": "Recent",
         "view_more": "View More"
+    },
+    "program_screen": {
+        "reward_total": "Total Reward Point Earned",
+        "reward_exchange": "Exchange",
+        "reward_increment": "+{point} Points",
+        "reward_load_more": "Load More",
+        "ad_system": "Advertise System",
+        "ad_tier_label": "Current Promotion Tier:",
+        "ad_tier_current": "Tier {tier}",
+        "ad_edit_tier": "Edit Promotion",
+        "voucher_system": "Voucher System",
+        "voucher_active": "Active Voucher:",
+        "voucher_price": "Rp. {price}",
+        "voucher_quota": "{quota} Quota",
+        "voucher_limit": "Limit {limit} per user per week",
+        "dine_in_system": "Dine In System",
+        "dine_in_status": "Current Status:",
+        "dine_in_active": "Active",
+        "dine_in_inactive": "Inactive",
+        "dine_in_view_tac": "View Term and Conditions",
+        "content_locked": "Content Locked"
     },
     "review": {
         "title": "Review",

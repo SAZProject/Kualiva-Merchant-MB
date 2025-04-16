@@ -34,6 +34,9 @@ class ThemeHelper {
         brightness: colorScheme.brightness,
         fontFamily: "K2D",
         textTheme: TextThemes.textTheme(colorScheme),
+        scaffoldBackgroundColor: colorScheme.brightness == Brightness.light
+            ? const Color.fromARGB(255, 238, 238, 238)
+            : const Color.fromARGB(255, 20, 20, 20),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
@@ -47,7 +50,7 @@ class ThemeHelper {
           style: OutlinedButton.styleFrom(
             backgroundColor: Colors.transparent,
             side: BorderSide(
-              color: appTheme.black900.withOpacity(0.6),
+              color: appTheme.black900.withValues(alpha: 0.6),
               width: 1,
             ),
             shape: RoundedRectangleBorder(
@@ -74,7 +77,7 @@ class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) {
     Color color = appTheme.black900;
     if (colorScheme == ColorSchemes.darkModeScheme) {
-      color = colorScheme.onPrimaryContainer.withOpacity(1);
+      color = colorScheme.onPrimaryContainer.withValues(alpha: 1);
     } else {
       color = appTheme.black900;
     }
@@ -145,24 +148,16 @@ class TextThemes {
 
 class ColorSchemes {
   static const lightModeScheme = ColorScheme.light(
-    primary: Color(0XFFFFAE00),
+    primary: Color(0XFFFF8800),
     primaryContainer: Color(0XFFFD0002),
-    secondaryContainer: Color(0XFFBFBABA),
-    errorContainer: Color(0XFFED4C5C),
-    onError: Color(0XFF5BC0F8),
-    onErrorContainer: Color(0XFF000D3C),
     onPrimary: Color(0XFF000FFF),
     onPrimaryContainer: Color.fromRGBO(0, 0, 0, 1),
     onSecondaryContainer: Color.fromRGBO(255, 255, 255, 1),
   );
 
   static const darkModeScheme = ColorScheme.dark(
-    primary: Color(0XFFFFAE00),
+    primary: Color(0XFFFF8800),
     primaryContainer: Color(0XFFFD0002),
-    secondaryContainer: Color(0XFFBFBABA),
-    errorContainer: Color(0XFFED4C5C),
-    onError: Color(0XFF5BC0F8),
-    onErrorContainer: Color(0XFF000D3C),
     onPrimary: Color(0XFF000FFF),
     onPrimaryContainer: Color.fromRGBO(255, 255, 255, 1),
     onSecondaryContainer: Color.fromRGBO(0, 0, 0, 1),
@@ -175,7 +170,7 @@ class GlobalCodeColors {
   //Amber
   Color get amber100 => const Color(0XFFFFEBBF);
   Color get amber300 => const Color(0XFFFFC957);
-  Color get amber700 => const Color(0XFFE1A303);
+  Color get amber700 => const Color(0XFFFFAE00);
   Color get amberA200 => const Color(0XFFFFC93C);
   //Black
   Color get black900 => const Color(0XFF000000);

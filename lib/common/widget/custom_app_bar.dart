@@ -9,6 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leadingWidth,
     this.leadingIcon = Icons.arrow_back_ios_new,
     this.leadingIconColor,
+    this.customTitle,
     this.title,
     this.centerTitle = false,
     this.actions,
@@ -21,6 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final IconData? leadingIcon;
   final Color? leadingIconColor;
   final String? title;
+  final Widget? customTitle;
   final bool? centerTitle;
   final List<Widget>? actions;
   final VoidCallback? onBackPressed;
@@ -34,7 +36,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0.0,
       centerTitle: centerTitle,
       leading: Padding(
-        padding: EdgeInsets.only(left: 5.h),
+        padding: EdgeInsets.symmetric(horizontal: 5.h),
         child: IconButton(
           iconSize: 25.h,
           icon: Icon(
@@ -44,17 +46,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: onBackPressed,
         ),
       ),
-      title: title == null
-          ? null
-          : Padding(
-              padding: EdgeInsets.zero,
-              child: Text(
-                title ?? "",
-                style: theme(context).textTheme.titleMedium,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
+      title: customTitle ??
+          (title == null
+              ? null
+              : Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.h),
+                  child: Text(
+                    title ?? "",
+                    style: theme(context).textTheme.titleMedium,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                )),
       actions: actions,
     );
   }

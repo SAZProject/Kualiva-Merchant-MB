@@ -142,6 +142,32 @@
         "dine_in_view_tac": "View Term and Conditions",
         "content_locked": "Content Locked"
     },
+    "reward_program": {
+        "title": "Point Exchange",
+        "withdraw_amount": "Withdraw Amount : ",
+        "withdraw_hint": "Type Exchange Amount",
+        "max": "Max",
+        "max_point": "Max Exchangeable Points : ",
+        "notice": "Notice :",
+        "notice_1": "Please understand that the number of points to be exchanged for money will be transferred to your account with a commission fee determined and agreed upon by both parties.",
+        "notice_2": "Once you have confirmed the exchange, we will immediately process your exchange within a maximum of 2x24 hours. If you have not received your money within that time, please submit a complaint via the merchant application.",
+        "notice_3": "When the exchange is successful, we will notify you via app notification and email.",
+        "notice_4": "You can only make one exchange at a time. If you want to make another exchange you have to wait for the previous exchange to complete.",
+        "confirm_btn": "Confirm Exchange"
+    },
+    "dine_in_program": {
+        "title": "Dine In System",
+        "current_status": "Current Status:",
+        "active": "Active",
+        "inactive": "Inactive",
+        "incoming_reservation": "Incoming Reservation Requests",
+        "pending_reservation": "Pending Reservations",
+        "ongoing_reservation": "Ongoing Reservations",
+        "total_person": "{index} Person",
+        "menu": "{index} Menu",
+        "time_left": "{index} {clock] Menu",
+        "check_notice_penalties_btn": "Check Notice & Penalties"
+    },
     "review": {
         "title": "Review",
         "filter": "Review Filter",

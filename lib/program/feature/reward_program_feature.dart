@@ -85,7 +85,8 @@ class RewardProgramFeature extends StatelessWidget {
                 width: 50.h,
                 height: 50.h,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(
+                      context, AppRoutes.rewardProgramScreen),
                   icon: Icon(
                     Icons.currency_exchange,
                     size: 20.h,

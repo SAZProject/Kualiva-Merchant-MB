@@ -5,9 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.21
-- Change Acc screen
-- Fix Edit outlet screen
+Ver 0.0.22
+- Add Reward point exchange screen
 ```
 
 ## Getting Started

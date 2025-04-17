@@ -5,8 +5,8 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.22
-- Add Reward point exchange screen
+Ver 0.0.23
+- Add Dine in program screen
 ```
 
 ## Getting Started

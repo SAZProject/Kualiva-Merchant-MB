@@ -231,10 +231,12 @@ class CustomDecoration {
   BoxDecoration get outlineOnPrimaryContainer => BoxDecoration(
         color: theme(context).colorScheme.onSecondaryContainer,
         border: Border.all(
-          color: theme(context).colorScheme.onPrimaryContainer,
-          width: 2.h,
+          color: theme(context).colorScheme.onPrimaryContainer.withValues(
+                alpha: 0.5,
+              ),
+          width: 1.h,
         ),
-        borderRadius: BorderRadiusStyle.roundedBorder20,
+        borderRadius: BorderRadiusStyle.roundedBorder10,
       );
 
   BoxDecoration get outlinePrimaryContainer => BoxDecoration(

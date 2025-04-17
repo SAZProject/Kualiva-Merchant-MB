@@ -163,9 +163,8 @@
         "incoming_reservation": "Incoming Reservation Requests",
         "pending_reservation": "Pending Reservations",
         "ongoing_reservation": "Ongoing Reservations",
-        "total_person": "{index} Person",
-        "menu": "{index} Menu",
-        "time_left": "{index} {clock] Menu",
+        "reservation_content": "{user} - {personQty} Person - {menuQty} Menu",
+        "time_left": "{index} {clock} left",
         "check_notice_penalties_btn": "Check Notice & Penalties"
     },
     "review": {

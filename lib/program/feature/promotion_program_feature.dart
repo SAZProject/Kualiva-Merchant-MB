@@ -38,7 +38,7 @@ class PromotionProgramFeature extends StatelessWidget {
                         maxLines: 1,
                       ),
                       SizedBox(height: 10.h),
-                      _buildAdTierDisplay(context),
+                      _buildPromotionDisplay(context),
                       SizedBox(height: 10.h),
                       _buildLoadMoreBtn(context),
                       SizedBox(height: 10.h),
@@ -51,7 +51,7 @@ class PromotionProgramFeature extends StatelessWidget {
         });
   }
 
-  Widget _buildAdTierDisplay(BuildContext context) {
+  Widget _buildPromotionDisplay(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
       child: Row(

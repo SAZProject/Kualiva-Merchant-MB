@@ -37,7 +37,7 @@ class VoucherProgramFeature extends StatelessWidget {
                         maxLines: 1,
                       ),
                       SizedBox(height: 10.h),
-                      _buildAdTierDisplay(context),
+                      _buildVoucherDisplay(context),
                       SizedBox(height: 10.h),
                     ],
                   ),
@@ -48,7 +48,7 @@ class VoucherProgramFeature extends StatelessWidget {
         });
   }
 
-  Widget _buildAdTierDisplay(BuildContext context) {
+  Widget _buildVoucherDisplay(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
       child: Column(

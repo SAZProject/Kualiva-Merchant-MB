@@ -33,14 +33,9 @@ class DineInProgramFeature extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        context.tr("program_screen.ad_system"),
-                        style: theme(context).textTheme.labelLarge,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
+                      _buildDineInLabel(context),
                       SizedBox(height: 10.h),
-                      _buildAdTierDisplay(context),
+                      _buildDineInDisplay(context),
                       SizedBox(height: 10.h),
                       _buildLoadMoreBtn(context),
                       SizedBox(height: 10.h),
@@ -53,7 +48,40 @@ class DineInProgramFeature extends StatelessWidget {
         });
   }
 
-  Widget _buildAdTierDisplay(BuildContext context) {
+  Widget _buildDineInLabel(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              context.tr("program_screen.ad_system"),
+              style: theme(context).textTheme.labelLarge,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 30.h,
+          height: 30.h,
+          child: IconButton(
+            onPressed: () => Navigator.pushNamed(
+              context,
+              AppRoutes.dineInProgramScreen,
+              arguments: isSystemActiveNotif,
+            ),
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              size: 15.h,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDineInDisplay(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: isSystemActiveNotif,
       builder: (context, value, child) {

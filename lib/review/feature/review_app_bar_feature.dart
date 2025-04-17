@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_app_bar.dart';
 
-class ProgramAppBarFeature extends StatelessWidget
+class ReviewAppBarFeature extends StatelessWidget
     implements PreferredSizeWidget {
-  const ProgramAppBarFeature({super.key});
+  const ReviewAppBarFeature({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,13 @@ class ProgramAppBarFeature extends StatelessWidget
                 "name": Faker().person.name(),
                 "userId": Faker().internet.macAddress().replaceAll(":", "")
               }),
-              style: CustomTextStyles(context).bodySmallOnSecondaryContainer,
+              style: CustomTextStyles(context).bodySmallPrimary12,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
             Text(
               Faker().company.name(),
-              style: CustomTextStyles(context)
-                  .bodySmallOnSecondaryContainer
-                  .copyWith(fontSize: 12.h),
+              style: CustomTextStyles(context).bodyMediumOnPrimaryContainer_06,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
@@ -38,7 +36,6 @@ class ProgramAppBarFeature extends StatelessWidget
         ),
       ),
       leadingIcon: Icons.switch_account,
-      leadingIconColor: theme(context).colorScheme.onSecondaryContainer,
       onBackPressed: () {},
       actions: [
         Padding(
@@ -47,7 +44,6 @@ class ProgramAppBarFeature extends StatelessWidget
             icon: Icon(
               Icons.notifications,
               size: 25.h,
-              color: theme(context).colorScheme.onSecondaryContainer,
             ),
             onPressed: () {
               Navigator.pushNamed(context, AppRoutes.notifScreen);

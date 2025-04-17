@@ -173,6 +173,12 @@
         "confirm_btn": "Confirm",
         "submit_btn": "Submit"
     }, 
+    "notif": {
+        "title": "Notification",
+        "customer_support": "Customer Support",
+        "customer_support_1": "Replies",
+        "customer_support_2": "Status"
+    },
     "account": {
         "edit_data": "Edit Data",
         "web_dashboard": "Website Dashboard",

@@ -63,7 +63,6 @@ class _ProgramScreenState extends State<ProgramScreen> {
             ),
             Column(
               children: [
-                SizedBox(height: 10.h),
                 const ProgramAppBarFeature(),
                 SizedBox(height: 10.h),
                 RewardProgramFeature(

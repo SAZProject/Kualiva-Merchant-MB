@@ -3,6 +3,7 @@ import 'package:kualiva_merchant_mb/account/about_us_screen.dart';
 import 'package:kualiva_merchant_mb/account/help_screen.dart';
 import 'package:kualiva_merchant_mb/auth/sign_in_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
+import 'package:kualiva_merchant_mb/common/screen/notification_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/term_of_service_screen.dart';
 import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
 import 'package:kualiva_merchant_mb/edit/choose_outlet_screen.dart';
@@ -25,6 +26,8 @@ class AppRoutes {
   static const String mainLayout = "/main_layout";
 
   static const String homeScreen = "/home_screen";
+
+  static const String notifScreen = "/notif_screen";
 
   static const String helpScreen = "/help_screen";
 
@@ -66,6 +69,11 @@ Route<dynamic> generateRoute(RouteSettings routeSetting) {
     case AppRoutes.homeScreen:
       return PageTransition(
           child: const HomeScreen(),
+          type: PageTransitionType.rightToLeft,
+          alignment: Alignment.center);
+    case AppRoutes.notifScreen:
+      return PageTransition(
+          child: const NotificationScreen(),
           type: PageTransitionType.rightToLeft,
           alignment: Alignment.center);
     case AppRoutes.helpScreen:

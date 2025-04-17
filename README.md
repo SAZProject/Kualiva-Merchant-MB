@@ -5,8 +5,9 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.19
-- Add Program Service
+Ver 0.0.20
+- Add Search bar on Review Screen
+- Fix App Icon
 ```
 
 ## Getting Started

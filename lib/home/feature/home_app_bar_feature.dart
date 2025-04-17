@@ -44,7 +44,9 @@ class HomeAppBarFeature extends StatelessWidget implements PreferredSizeWidget {
               Icons.notifications,
               size: 25.h,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.notifScreen);
+            },
           ),
         ),
       ],

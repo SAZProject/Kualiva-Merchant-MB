@@ -17,7 +17,7 @@ dependencies:
     permission_handler: ^11.3.1
     easy_localization: ^3.0.7
     page_transition: ^2.1.0
-    flutter_launcher_icons: ^0.14.1
+    flutter_launcher_icons: ^0.14.3
     adaptive_theme: ^3.6.0
     outline_gradient_button: ^2.0.1+1
     cached_network_image: ^3.4.1
@@ -51,7 +51,8 @@ dev_dependencies:
 flutter_launcher_icons:
     android: true
     ios: true
-    image_path: "assets/images/kualiva_icon.png"
+    image_path: "assets/images/kualiva_app_icon.png"
+    remove_alpha_ios: true
 
 flutter:
     uses-material-design: true

@@ -59,7 +59,7 @@ class AccountMenuSection extends StatelessWidget {
         width: double.maxFinite,
         child: Card(
           color: theme(context).colorScheme.onSecondaryContainer,
-          elevation: 10.0,
+          elevation: 2.h,
           child: Column(
             children: [
               _buildProfileMenuListItem(

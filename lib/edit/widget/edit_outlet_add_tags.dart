@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
-import 'package:kualiva_merchant_mb/common/widget/custom_elevated_button.dart';
+import 'package:kualiva_merchant_mb/common/style/custom_btn_style.dart';
+import 'package:kualiva_merchant_mb/common/widget/custom_outlined_button.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_add_tags_modal.dart';
 
 class EditOutletAddTags extends StatefulWidget {
@@ -38,9 +39,11 @@ class _EditOutletAddTagsState extends State<EditOutletAddTags> {
             SizedBox(height: 5.h),
             _buildSelectedTags(context),
             SizedBox(height: 5.h),
-            CustomElevatedButton(
+            CustomOutlinedButton(
               height: 40.h,
-              initialText: context.tr("common.edit"),
+              text: context.tr("common.edit"),
+              buttonStyle: CustomButtonStyles.outlinePrimary(context),
+              buttonTextStyle: CustomTextStyles(context).bodySmallPrimary12,
               onPressed: () {
                 showModalBottomSheet(
                   context: context,

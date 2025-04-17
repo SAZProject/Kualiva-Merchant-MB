@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 
@@ -9,22 +10,7 @@ class AccountTopSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
-      child: Row(
-        children: [
-          _buildSectionItem(
-            context,
-            Icons.edit,
-            context.tr("account.edit_data"),
-            () => Navigator.pushNamed(context, AppRoutes.editScreen),
-          ),
-          _buildSectionItem(
-            context,
-            Icons.language,
-            context.tr("account.web_dashboard"),
-            () {},
-          )
-        ],
-      ),
+      child: _userLevel(context),
     );
   }
 
@@ -40,7 +26,7 @@ class AccountTopSection extends StatelessWidget {
         child: SizedBox(
           width: double.maxFinite,
           child: Card(
-            elevation: 5.0,
+            elevation: 2.h,
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: Column(
@@ -57,6 +43,63 @@ class AccountTopSection extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _userLevel(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 10.h,
+        vertical: 5.h,
+      ),
+      child: SizedBox(
+        width: double.maxFinite,
+        child: Card(
+          color: theme(context).colorScheme.onSecondaryContainer,
+          margin: EdgeInsets.zero,
+          elevation: 2.h,
+          child: InkWell(
+            onTap: () =>
+                Navigator.pushNamed(context, AppRoutes.editOwnershipScreen),
+            child: Padding(
+              padding: EdgeInsets.all(5.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CustomImageView(
+                    imagePath: Faker().image.loremPicsum(),
+                    width: 50.h,
+                    height: 50.h,
+                    radius: BorderRadiusStyle.roundedBorder50,
+                    boxFit: BoxFit.cover,
+                  ),
+                  SizedBox(width: 10.h),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          context.tr("account.merchant_acc"),
+                          style: CustomTextStyles(context).bodySmallPrimary12,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          Faker().person.name(),
+                          style: theme(context).textTheme.labelSmall,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Icon(Icons.arrow_forward_ios, size: 20.h)
                 ],
               ),
             ),

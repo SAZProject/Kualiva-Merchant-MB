@@ -180,7 +180,8 @@
         "customer_support_2": "Status"
     },
     "account": {
-        "edit_data": "Edit Data",
+        "merchant_acc": "Merchant Account",
+        "edit_outlet": "Edit Outlet",
         "web_dashboard": "Website Dashboard",
         "theme": "Theme",
         "cs": "Customer Support",

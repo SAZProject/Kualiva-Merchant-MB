@@ -58,7 +58,7 @@ class ChooseOutletListItem extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Text(
-                    outletModel.id,
+                    outletModel.googlePlaceId,
                     style: theme(context).textTheme.bodySmall,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

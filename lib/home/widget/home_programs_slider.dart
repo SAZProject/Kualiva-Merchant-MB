@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
-import 'package:kualiva_merchant_mb/data/models/ui_model/merchant_program_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/ui_model/merchant_program_model.dart';
 import 'package:kualiva_merchant_mb/home/widget/program_slider_item.dart';
 
 class HomeProgramsSlider extends StatelessWidget {

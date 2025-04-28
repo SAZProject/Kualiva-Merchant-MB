@@ -5,8 +5,11 @@ This is a Kualiva Merchant App for Prelion corporation.
 ## Changelog
 
 ```text
-Ver 0.0.23
-- Add Dine in program screen
+Ver 0.0.24
+- Integrate with merchant backend
+- Add Auth bloc and repository
+- Add Hive Ce for temp storage/cache
+- Fix minor bug
 ```
 
 ## Getting Started

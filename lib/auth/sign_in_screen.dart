@@ -1,12 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kualiva_merchant_mb/auth/bloc/auth_bloc.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/style/custom_btn_style.dart';
 import 'package:kualiva_merchant_mb/common/utility/permission_utils.dart';
 import 'package:kualiva_merchant_mb/common/utility/save_pref.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_elevated_button.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_outlined_button.dart';
+import 'package:kualiva_merchant_mb/common/widget/custom_snack_bar.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_text_form_field.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -19,16 +22,15 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _usernameCtl = TextEditingController();
+  final TextEditingController _emailCtl = TextEditingController();
   final TextEditingController _passwordCtl = TextEditingController();
   bool passObscure = true;
-  bool isLoading = false;
 
   bool tosAgreement = false;
 
   @override
   void dispose() {
-    _usernameCtl.dispose();
+    _emailCtl.dispose();
     _passwordCtl.dispose();
     super.dispose();
   }
@@ -45,49 +47,36 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _onPressedSignIn(BuildContext context) {
-    setState(() {
-      isLoading = true;
-    });
+    if (_formKey.currentState!.validate() == false) return;
+
+    final String email = _emailCtl.text.trim();
+    final String password = _passwordCtl.text.trim();
+
     PermissionUtils.requestPermission(context).then(
       (value) async {
         if (value) {
           if (!context.mounted) return;
-          Navigator.pushNamedAndRemoveUntil(
-              context, AppRoutes.mainLayout, (route) => false);
-          // Map<String, String> body = {
-          //   "usernameOrEmail": _usernameCtl.text.trim(),
-          //   "password": _passwordCtl.text.trim(),
-          // };
-          // final dio = await DioClient().dio();
-          // final res = await dio.post('/users-merchant/login', data: body);
-          // Map<String, dynamic> mapRes = jsonDecode(res.toString());
-          // debugPrint("data debug 1 " + mapRes.toString());
-          // if (mapRes["status"] == 200) {
-          //   setState(() {
-          //     isLoading = false;
-          //   });
-          //   debugPrint("data debug 2 " + mapRes["data"].toString());
-          //   Map<String, dynamic> mapData =
-          //       Map<String, dynamic>.from(mapRes["data"]);
-          //   debugPrint("data debug 3 " + mapData.toString());
-          //   PrefUtils.setProfile(mapData.toString());
-          //   if (!context.mounted) return;
-          //   showSnackBar(context, Icons.done_outline, Colors.greenAccent,
-          //       context.tr("sign_in.sign_in_success"), Colors.greenAccent);
-          //   Navigator.pushNamedAndRemoveUntil(
-          //       context, AppRoutes.mainLayout, (route) => false);
-          // } else {
-          //   setState(() {
-          //     isLoading = false;
-          //   });
-          //   if (!context.mounted) return;
-          //   showSnackBar(context, Icons.error_outline, Colors.red,
-          //       context.tr("sign_in.sign_in_failed"), Colors.red);
-          // }
-        } else {
-          setState(() {
-            isLoading = true;
-          });
+          if (!tosAgreement) {
+            Navigator.pushNamed(context, AppRoutes.tosScreen).then(
+              (value) {
+                if (value == null) return;
+                setState(() {
+                  tosAgreement = value as bool;
+                });
+                SavePref().saveTosData(value as bool);
+                if (!context.mounted) return;
+                context.read<AuthBloc>().add(AuthLoggedIn(
+                      email: email,
+                      password: password,
+                    ));
+              },
+            );
+          } else {
+            context.read<AuthBloc>().add(AuthLoggedIn(
+                  email: email,
+                  password: password,
+                ));
+          }
         }
       },
     );
@@ -97,9 +86,21 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: _body(context),
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is AuthLoginSuccess) {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(AppRoutes.mainLayout, (route) => false);
+        }
+        if (state is AuthLoginFailure) {
+          showSnackBar(context, Icons.error_outline, Colors.red,
+              context.tr("common.error_try_again"), Colors.red);
+        }
+      },
+      child: SafeArea(
+        child: Scaffold(
+          body: _body(context),
+        ),
       ),
     );
   }
@@ -156,7 +157,7 @@ class _SignInScreenState extends State<SignInScreen> {
             overflow: TextOverflow.ellipsis,
           ),
           SizedBox(height: 10.h),
-          _textFieldUsername(context),
+          _textFieldEmail(context),
           SizedBox(height: 10.h),
           _textFieldPassword(context),
           SizedBox(height: 25.h),
@@ -173,12 +174,12 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget _textFieldUsername(BuildContext context) {
+  Widget _textFieldEmail(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
       child: CustomTextFormField(
-        controller: _usernameCtl,
-        hintText: context.tr("sign_in.username"),
+        controller: _emailCtl,
+        hintText: context.tr("sign_in.email"),
         textInputAction: TextInputAction.done,
         textInputType: TextInputType.text,
         contentPadding: EdgeInsets.all(12.h),
@@ -225,15 +226,17 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget _signInButton(BuildContext context) {
-    return CustomElevatedButton(
-      isLoading: isLoading,
-      initialText: context.tr("sign_in.sign_in_btn"),
-      buttonStyle: CustomButtonStyles.fillprimary(context),
-      decoration: null,
-      buttonTextStyle:
-          CustomTextStyles(context).titleMediumOnSecondaryContainer,
-      onPressed: () => _onPressedSignIn(context),
-    );
+    return BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
+      return CustomElevatedButton(
+        isLoading: state is AuthLoading,
+        initialText: context.tr("sign_in.sign_in_btn"),
+        buttonStyle: CustomButtonStyles.fillprimary(context),
+        decoration: null,
+        buttonTextStyle:
+            CustomTextStyles(context).titleMediumOnSecondaryContainer,
+        onPressed: () => _onPressedSignIn(context),
+      );
+    });
   }
 
   Widget _signUpButton(BuildContext context) {

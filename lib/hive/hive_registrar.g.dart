@@ -8,5 +8,7 @@ import 'package:kualiva_merchant_mb/hive/hive_adapters.dart';
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
     registerAdapter(ProductAdapter());
+    registerAdapter(UserModelAdapter());
+    registerAdapter(UserProfileModelAdapter());
   }
 }

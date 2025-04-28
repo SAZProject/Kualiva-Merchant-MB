@@ -64,7 +64,7 @@ class ImageUtility {
       }
       return temp;
     } catch (e) {
-      LeLog.pe(this, getMediaFromGallery, e.toString());
+      LeLog.sd(this, getMediaFromGallery, e.toString());
       if (!context.mounted) return Future<List<String>>.value([]);
       showSnackBar(context, Icons.error_outline, Colors.red,
           "${"common.error".tr()} $e", Colors.red);
@@ -102,7 +102,7 @@ class ImageUtility {
       }
       return temp;
     } catch (e) {
-      LeLog.pe(this, getMediaFromCamera, e.toString());
+      LeLog.sd(this, getMediaFromCamera, e.toString());
       if (!context.mounted) return Future<List<String>>.value([]);
       showSnackBar(context, Icons.error_outline, Colors.red,
           "${"common.error".tr()} $e", Colors.red);

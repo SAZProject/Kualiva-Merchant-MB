@@ -5,7 +5,7 @@ import 'package:kualiva_merchant_mb/auth/sign_in_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/coming_soon.dart';
 import 'package:kualiva_merchant_mb/common/screen/notification_screen.dart';
 import 'package:kualiva_merchant_mb/common/screen/term_of_service_screen.dart';
-import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/outlet_model.dart';
 import 'package:kualiva_merchant_mb/edit/choose_outlet_screen.dart';
 import 'package:kualiva_merchant_mb/edit/edit_menu_screen.dart';
 import 'package:kualiva_merchant_mb/edit/edit_outlet_screen.dart';
@@ -13,12 +13,15 @@ import 'package:kualiva_merchant_mb/edit/edit_ownership_screen.dart';
 import 'package:kualiva_merchant_mb/edit/edit_screen.dart';
 import 'package:kualiva_merchant_mb/home/home_screen.dart';
 import 'package:kualiva_merchant_mb/layout/main_layout.dart';
+import 'package:kualiva_merchant_mb/prime_celestial.dart';
 import 'package:kualiva_merchant_mb/program/dine_in_program_screen.dart';
 import 'package:kualiva_merchant_mb/program/reward_program_screen.dart';
 import 'package:kualiva_merchant_mb/splash/splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 class AppRoutes {
+  static const String primeCelestial = "/prime_celestial";
+
   static const String splashScreen = "/splash_screen";
 
   static const String signInScreen = "/sign_in_screen";
@@ -52,6 +55,13 @@ class AppRoutes {
 
 Route<dynamic> generateRoute(RouteSettings routeSetting) {
   switch (routeSetting.name) {
+    case AppRoutes.primeCelestial:
+      return PageTransition(
+          child: const PrimeCelestial(),
+          type: PageTransitionType.scale,
+          alignment: Alignment.center,
+          duration: const Duration(milliseconds: 300));
+
     case AppRoutes.splashScreen:
       return PageTransition(
           child: const SplashScreen(),

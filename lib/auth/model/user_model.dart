@@ -1,0 +1,132 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:kualiva_merchant_mb/auth/model/user_profile_model.dart';
+import 'package:hive_ce/hive.dart';
+
+class UserModel extends HiveObject {
+  final String id;
+  final String username;
+  final String email;
+  final String phone;
+  final bool isAdult;
+  final bool isEmailVerified;
+  final bool isPhoneVerified;
+  final bool isGoogle;
+  final DateTime createdAt;
+  final UserProfileModel? profile;
+
+  UserModel({
+    required this.id,
+    required this.username,
+    required this.email,
+    required this.phone,
+    required this.isAdult,
+    required this.isEmailVerified,
+    required this.isPhoneVerified,
+    required this.isGoogle,
+    required this.createdAt,
+    this.profile,
+  });
+
+  UserModel copyWith({
+    String? id,
+    String? username,
+    String? email,
+    String? phone,
+    bool? isAdult,
+    bool? isEmailVerified,
+    bool? isPhoneVerified,
+    bool? isGoogle,
+    DateTime? createdAt,
+    ValueGetter<UserProfileModel?>? profile,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      username: username ?? this.username,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      isAdult: isAdult ?? this.isAdult,
+      isEmailVerified: isEmailVerified ?? this.isEmailVerified,
+      isPhoneVerified: isPhoneVerified ?? this.isPhoneVerified,
+      isGoogle: isGoogle ?? this.isGoogle,
+      createdAt: createdAt ?? this.createdAt,
+      profile: profile != null ? profile() : this.profile,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'username': username,
+      'email': email,
+      'phone': phone,
+      'isAdult': isAdult,
+      'isEmailVerified': isEmailVerified,
+      'isPhoneVerified': isPhoneVerified,
+      'isGoogle': isGoogle,
+      'createdAt': createdAt.millisecondsSinceEpoch,
+      'profile': profile?.toMap(),
+    };
+  }
+
+  factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+      id: map['id'] ?? '',
+      username: map['username'] ?? '',
+      email: map['email'] ?? '',
+      phone: map['phone'] ?? '',
+      isAdult: map['isAdult'] ?? false,
+      isEmailVerified: map['isEmailVerified'] ?? false,
+      isPhoneVerified: map['isPhoneVerified'] ?? false,
+      isGoogle: map['isGoogle'] ?? false,
+      createdAt: DateTime.parse(map['createdAt']),
+      profile: map['profile'] != null
+          ? UserProfileModel.fromMap(map['profile'])
+          : null,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory UserModel.fromJson(String source) =>
+      UserModel.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'UserModel(id: $id, username: $username, email: $email, phone: $phone, isAdult: $isAdult, isEmailVerified: $isEmailVerified, isPhoneVerified: $isPhoneVerified, isGoogle: $isGoogle, createdAt: $createdAt, profile: $profile)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UserModel &&
+        other.id == id &&
+        other.username == username &&
+        other.email == email &&
+        other.phone == phone &&
+        other.isAdult == isAdult &&
+        other.isEmailVerified == isEmailVerified &&
+        other.isPhoneVerified == isPhoneVerified &&
+        other.isGoogle == isGoogle &&
+        other.createdAt == createdAt &&
+        other.profile == profile;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        username.hashCode ^
+        email.hashCode ^
+        phone.hashCode ^
+        isAdult.hashCode ^
+        isEmailVerified.hashCode ^
+        isPhoneVerified.hashCode ^
+        isGoogle.hashCode ^
+        createdAt.hashCode ^
+        profile.hashCode;
+  }
+}

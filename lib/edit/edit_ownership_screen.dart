@@ -1,12 +1,8 @@
-import 'dart:convert';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/utility/sized_utils.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_app_bar.dart';
-import 'package:kualiva_merchant_mb/common/widget/custom_snack_bar.dart';
-import 'package:kualiva_merchant_mb/data/dio_client.dart';
-import 'package:kualiva_merchant_mb/data/shared_pref_collection.dart';
+import 'package:kualiva_merchant_mb/_data/shared_pref_collection.dart';
 import 'package:kualiva_merchant_mb/edit/widget/editable_textfield.dart';
 
 class EditOwnershipScreen extends StatefulWidget {
@@ -20,7 +16,7 @@ class _EditOwnershipScreenState extends State<EditOwnershipScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _fullnameCtl = TextEditingController();
   final TextEditingController _contactCtl = TextEditingController();
-  final FocusNode _fulnameFocus = FocusNode();
+  final FocusNode _fullnameFocus = FocusNode();
   final FocusNode _contactFocus = FocusNode();
   bool isLoading = false;
   bool _fullnameReadOnly = true;
@@ -93,51 +89,15 @@ class _EditOwnershipScreenState extends State<EditOwnershipScreen> {
                 controller: _fullnameCtl,
                 textInputType: TextInputType.text,
                 suffix: context.tr("common.edit"),
-                textfieldFocus: _fulnameFocus,
+                textfieldFocus: _fullnameFocus,
                 textfieldReadOnly: _fullnameReadOnly,
                 editOnPressed: () async {
                   setState(() {
                     _fullnameReadOnly = !_fullnameReadOnly;
                     if (_fullnameReadOnly == false) {
-                      _fulnameFocus.requestFocus();
+                      _fullnameFocus.requestFocus();
                     }
                   });
-                  if (_fullnameReadOnly) {
-                    if (_fullnameCtl.text != tempFullNameValue) {
-                      Map<String, String> body = {
-                        "username": _fullnameCtl.text.trim(),
-                        "email": "",
-                        "phone": _contactCtl.text.trim(),
-                        "password": ""
-                      };
-                      final dio = await DioClient().dio();
-                      final res = await dio.post('/users-merchant/login',
-                          queryParameters: {"id": accId}, data: body);
-                      Map<String, dynamic> mapRes = jsonDecode(res.toString());
-                      if (mapRes["status"] == 200) {
-                        setState(() {
-                          isLoading = false;
-                        });
-                        Map<String, dynamic> mapData =
-                            jsonDecode(mapRes["data"].toString());
-                        PrefUtils.setProfile(mapData.toString());
-                        if (!context.mounted) return;
-                        showSnackBar(
-                            context,
-                            Icons.done_outline,
-                            Colors.greenAccent,
-                            context.tr("sign_in.sign_in_success"),
-                            Colors.greenAccent);
-                      } else {
-                        setState(() {
-                          isLoading = false;
-                        });
-                        if (!context.mounted) return;
-                        showSnackBar(context, Icons.error_outline, Colors.red,
-                            context.tr("sign_in.sign_in_failed"), Colors.red);
-                      }
-                    }
-                  }
                 },
               ),
               SizedBox(height: 10.h),

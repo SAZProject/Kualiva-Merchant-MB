@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
 import 'package:kualiva_merchant_mb/common/utility/datetime_utils.dart';
-import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/outlet_model.dart';
 
 class ChooseOutletListItem extends StatelessWidget {
   const ChooseOutletListItem({

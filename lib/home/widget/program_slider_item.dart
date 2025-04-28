@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
-import 'package:kualiva_merchant_mb/data/models/ui_model/merchant_program_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/ui_model/merchant_program_model.dart';
 
 class ProgramSliderItem extends StatelessWidget {
   const ProgramSliderItem({

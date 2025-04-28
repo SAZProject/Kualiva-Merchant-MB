@@ -2,7 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/app_export.dart';
-import 'package:kualiva_merchant_mb/data/models/ui_model/account_menu_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/ui_model/account_menu_model.dart';
 
 class AccountMenuSection extends StatelessWidget {
   AccountMenuSection({super.key});

@@ -1,0 +1,2 @@
+C:/Users/USER/Documents/programming_folder/like_it_merchant_mb/android/app/.cxx/RelWithDebInfo/5v674ai6/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/USER/Documents/programming_folder/like_it_merchant_mb/android/app/.cxx/RelWithDebInfo/5v674ai6/x86_64/CMakeFiles/rebuild_cache.dir

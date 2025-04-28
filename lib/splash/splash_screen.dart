@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    LeLog.pd(this, initState, "First initialized");
+    LeLog.sd(this, initState, "First initialized");
     _checkPermission();
     _startBounceAnimation();
     // _videoPlayerController =

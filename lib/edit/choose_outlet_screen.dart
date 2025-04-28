@@ -5,7 +5,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/utility/sized_utils.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_app_bar.dart';
-import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/outlet_model.dart';
 import 'package:kualiva_merchant_mb/edit/widget/choose_outlet_list_item.dart';
 
 class ChooseOutletScreen extends StatefulWidget {

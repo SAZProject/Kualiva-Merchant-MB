@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kualiva_merchant_mb/common/dataset/outlet_dataset.dart';
 import 'package:kualiva_merchant_mb/common/widget/custom_app_bar.dart';
-import 'package:kualiva_merchant_mb/data/models/outlet_model.dart';
+import 'package:kualiva_merchant_mb/_data/models/outlet_model.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_add_tags.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_dropdown_component.dart';
 import 'package:kualiva_merchant_mb/edit/widget/edit_outlet_edit_menu.dart';
